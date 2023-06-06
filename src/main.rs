@@ -1,5 +1,5 @@
 mod neuron;
-use neuron::{calculate_output, Neuron};
+use neuron::{Neuron, NeuronOps};
 use ndarray::array;
 
 fn main() {
@@ -18,8 +18,8 @@ fn main() {
         weights: array![-0.26, -0.27, 0.17, 0.87],
         bias: 0.5,
     };
-    let output1 = calculate_output(neu1);
-    let output2 = calculate_output(neu2);
-    let output3 = calculate_output(neu3);
+    let output1 = neu1.calculate_output();
+    let output2 = neu2.calculate_output();
+    let output3 = neu3.calculate_output();
     println!("{output1}, {output2}, {output3}");
 }

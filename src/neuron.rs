@@ -6,7 +6,13 @@ pub struct Neuron {
     pub bias: f64,
 }
 
-pub fn calculate_output(neuron: Neuron) -> f64 {
-    let dot_product: f64 = neuron.inputs.dot(&neuron.weights);
-    return dot_product + neuron.bias;
+pub trait NeuronOps {
+    fn calculate_output(&self) -> f64;
+}
+
+impl NeuronOps for Neuron {
+    fn calculate_output(&self) -> f64 {
+        let dot_product: f64 = self.inputs.dot(&self.weights);
+        return dot_product + &self.bias;
+    }
 }
