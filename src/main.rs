@@ -1,12 +1,25 @@
 mod neuron;
-use neuron::{Neuron, get_output};
+use neuron::{calculate_output, Neuron};
+use ndarray::array;
 
 fn main() {
-    let neu = Neuron {
-        inputs: vec![1.0, 2.0, 3.0, 2.5],
-        weights: vec![0.2, 0.8, -0.5, 1.0],
+    let neu1 = Neuron {
+        inputs: array![1.0, 2.0, 3.0, 2.5],
+        weights: array![0.2, 0.8, -0.5, 1.0],
         bias: 2.0,
     };
-    let output = get_output(neu);
-    println!("{output}");
+    let neu2 = Neuron {
+        inputs: array![1.0, 2.0, 3.0, 2.5],
+        weights: array![0.5, -0.91, 0.26, -0.5],
+        bias: 3.0,
+    };
+    let neu3 = Neuron {
+        inputs: array![1.0, 2.0, 3.0, 2.5],
+        weights: array![-0.26, -0.27, 0.17, 0.87],
+        bias: 0.5,
+    };
+    let output1 = calculate_output(neu1);
+    let output2 = calculate_output(neu2);
+    let output3 = calculate_output(neu3);
+    println!("{output1}, {output2}, {output3}");
 }
