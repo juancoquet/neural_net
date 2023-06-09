@@ -7,12 +7,12 @@ pub struct Neuron {
 }
 
 pub trait NeuronOps {
-    fn calculate_output(&self) -> f64;
+    fn evaluate_output(&self) -> f64;
 }
 
 impl NeuronOps for Neuron {
-    fn calculate_output(&self) -> f64 {
+    fn evaluate_output(&self) -> f64 {
         let dot_product: f64 = self.inputs.dot(&self.weights);
-        return dot_product + &self.bias;
+        return dot_product + self.bias;
     }
 }
