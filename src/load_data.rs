@@ -5,7 +5,7 @@ use std::fs;
 #[derive(Deserialize)]
 pub struct Data {
     #[serde(deserialize_with = "deserialize_array2")]
-    pub x: Array2<f64>,
+    pub input_batch: Array2<f64>,
     #[serde(deserialize_with = "deserialize_array1")]
     pub y: Array1<f64>,
 }

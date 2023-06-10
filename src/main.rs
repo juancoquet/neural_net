@@ -1,13 +1,9 @@
 mod layers;
 mod load_data;
 
-// use ndarray::array;
-
 fn main() {
-    // batch of 3x input samples n=4
-
     let data = load_data::load_data("src/spiral_data.json").unwrap();
-    let inputs = data.x;
+    let inputs = data.input_batch;
 
     let n_inputs = 2;
     let n_neurons = 3;
