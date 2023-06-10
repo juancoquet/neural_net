@@ -1,8 +1,10 @@
+mod data_files;
 mod layers;
-mod load_data;
+
+use data_files::data_loader::load_data;
 
 fn main() {
-    let data = load_data::load_data("src/spiral_data.json").unwrap();
+    let data = load_data("src/data_files/spiral_data.json").unwrap();
     let inputs = data.input_batch;
 
     let n_inputs = 2;
