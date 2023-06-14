@@ -28,3 +28,11 @@ impl LayerDense {
         return output;
     }
 }
+
+pub struct ActivationReLU {}
+
+impl ActivationReLU {
+    pub fn forward(self, inputs: Array2<f64>) -> Array2<f64> {
+        return inputs.mapv(|x| x.max(0.0));
+    }
+}
